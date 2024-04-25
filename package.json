@@ -1,0 +1,23 @@
+{
+  "name": "regression-test-blogagi",
+  "version": "1.0.0",
+  "description": "Testes regressivos do blog do AGI",
+  "main": "index.js",
+  "scripts": {
+    "test:run": "cypress run",
+    "test:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusDEVQA/regression-test-blogAgi.git"
+  },
+  "author": "Matheus Muniz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatheusDEVQA/regression-test-blogAgi/issues"
+  },
+  "homepage": "https://github.com/MatheusDEVQA/regression-test-blogAgi#readme",
+  "dependencies": {
+    "cypress": "^13.8.1"
+  }
+}
