@@ -1,11 +1,23 @@
-name: Regressiont tests Blog Agi
+name: Regression Tests Blog Agi
 
 on:
-  workflow_dispatch:
+  pull_request:    
+  workflow_dispatch:   
+    inputs:
+      browser:
+        type: choice
+        options:
+          - chrome
+          - edge
+          - firefox
+          - electron            
   workflow_call:
-  pull_request:
-    branches: main    
-
+    inputs:
+        browser:
+          required: false
+          type: string
+          default: "chrome"
+     
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -21,5 +33,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run Cypress Tests ${{ inputs.browser}}
+        if: failure() || success() && github.event_name != 'pull_request'
+        run: |
+          npm run test:browser ${{ inputs.browser}}
+
       - name: Run Cypress Tests
-        run: npm run test:run
+        if: (failure() || success()) && github.event_name == 'pull_request'
+        run: |
+          npm run test:run
