@@ -1,7 +1,10 @@
 name: Regressiont tests Blog Agi
 
 on:
-  dispatch_workflow:
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+    branches: main    
 
 jobs:
   cypress-run:
