@@ -42,3 +42,16 @@ jobs:
         if: (failure() || success()) && github.event_name == 'pull_request'
         run: |
           npm run test:run
+          
+      - name: Merge Mochawesome Reports
+        run: npx mochawesome-merge cypress/reports/*.json > mochawesome.json
+
+      - name: Generate Mochawesome Report
+        run: npx marge mochawesome.json -f report -o cypress/reports
+
+      - name: Archive Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-reports
+          path: cypress/reports/report.html
+          

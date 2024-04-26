@@ -1,16 +1,22 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter',
-  e2e: {
-    baseUrl: 'https://blogdoagi.com.br',
-
-    setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
-    },
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: false,
+    html: true,
+    json: false
   },
+  e2e: {
+      baseUrl: 'https://blogdoagi.com.br',
 
-  env: {
+      setupNodeEvents(on, config) {
+        require('cypress-mochawesome-reporter/plugin')(on);
+      },
+    },
 
-  }
-});
+    env: {
+
+    }
+  });
