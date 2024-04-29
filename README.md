@@ -18,4 +18,4 @@ Execute `npm run test:run` para executar os testes sem interface.
 Ou, execute `npm run test:open` para abrir o cypress no modo interativo.
 
 ## Execute o workflow_dispatch
-Na aba actions selecione o workflow `Regressiont tests Blog Agi` e execute os testes na pipeline.
+Na aba actions selecione o workflow `Regressiont tests Blog Agi` e execute os testes na pipeline. Para visualizar o resultado dos teste baixe o artefato `cypress-reports` e abra o arquivo **index.html**
