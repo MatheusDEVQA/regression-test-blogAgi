@@ -28,5 +28,5 @@ Cypress.Commands.add('validaLinkArtigo', () => {
 
 Cypress.Commands.add('validaTextoInsucessoPesquisa', () => {
     cy.get('#main p')
-    .should('contain.text', 'Lamentamos, mas nada foi encontrado para sua pesquisa, tente novamente com outras palavras.');
+    .should('contain.text', 'Lmentamos, mas nada foi encontrado para sua pesquisa, tente novamente com outras palavras.');
 })
